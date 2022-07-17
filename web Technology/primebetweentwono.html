@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">	
+
+
+
+	
+	n1=parseInt(prompt("enter your starting number::"));	
+	n2=parseInt(prompt("enter your ending number::"));
+	k=0;
+	for (i=n1;i<=n2;i++)
+	{
+		fleg=0;
+		for(k=2;k<i;k++)
+		{
+			if(i%k==0)
+			{
+				fleg=1;
+				
+			}
+
+			
+			
+		}
+		if(fleg==0)
+			{
+				document.write(i + "&nbsp" + "number is  prime," + "</br>");
+			}
+		
+
+
+	}
+
+	
+
+</script>
+</body>
+</html>

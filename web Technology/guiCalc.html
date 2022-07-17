@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>GUI Calculator</title>
+</head>
+<body>
+	<style type="text/css">
+		td{
+	background: black;
+}
+button{
+	background: #rosybrown;
+	width: 40px;
+	border-color: slategrey;
+	margin: ;
+}
+		
+	</style>
+		<table border="solid black 1px" align="center">
+			<tr>
+				<td colspan="4" >
+					<input type="text"  id="inout" >
+				</td>
+			</tr>
+			<tr>
+				<td><button onclick="sin(this)">sin</button></td>
+				<td><button onclick="clearAll(this)">CE</button></td>
+				<td><button onclick="addOp(this)">%</button></td>
+				<td><button onclick="backspc(this)">x</button></td>
+				<td><button onclick="addOp(this)">/</button></td>				
+			</tr>
+			<tr>
+				<td><button onclick="sqrt(this)">√</button> </td>
+				<td><button onclick="e()">e</button> </td>
+				<td><button onclick="pie()">π</button></td>
+				<td><button onclick="log(this)">Log</button> </td>
+			</tr>
+
+			<tr>
+				<td><button onclick="cos(this)">cos</button></td>
+				<td><button onclick="addNumber(this)">7</button></td>
+				<td><button onclick="addNumber(this)">8</button></td>
+				<td><button onclick="addNumber(this)">9</button></td>
+				<td><button onclick="addOp(this)">*</button></td>				
+			</tr>
+			<tr>
+				<td><button onclick="power(this)">x <span style="position: relative; bottom: .3em; right: .2em;">2</span>
+                </button></td>
+				<td><button onclick="addNumber(this)">4</button></td>
+				<td><button onclick="addNumber(this)">5</button></td>
+				<td><button onclick="addNumber(this)">6</button></td>
+				<td><button onclick="addOp(this)">-</button></td>				
+			</tr>
+			<tr>
+				<td><button onclick="tan(this)">tan</button></td>
+				<td><button onclick="addNumber(this)">1</button></td>
+				<td><button onclick="addNumber(this)">2</button></td>
+				<td><button onclick="addNumber(this)">3</button></td>
+				<td><button onclick="addOp(this)">+</button></td>				
+			</tr>
+			<tr>
+				<td><button onclick="fact(this)">x!</button></td>
+				<td><button onclick="addNumber(this)">00</button></td>
+				<td><button onclick="addNumber(this)">0</button></td>
+				<td><button onclick="addnumber(this)">.</button></td>
+				<td><button onclick="displayAns(this)">=</button></td>				
+			</tr>
+
+		</table>
+
+		<script type="text/javascript">
+
+			var oldval=0;
+			var oldop="";
+
+			function addNumber(n){
+				io = document.getElementById("inout");
+				io.value += n.innerHTML;	
+			}
+
+			function addOp(n){
+				io = document.getElementById("inout");
+				oldval = io.value;
+				oldop = n.innerHTML;
+				io.value = "";
+			}
+
+			function backspc(){
+				io.value=io.value.substr(0,io.value.length-1);
+			}
+
+			function displayAns(){
+				io = document.getElementById("inout");
+				newval = io.value;
+				if(oldop=="+"){
+					ans = parseInt(newval)+parseInt(oldval);
+				}
+				else if(oldop=="-"){
+					ans = parseInt(oldval)-parseInt(newval);
+				}
+				else if(oldop=="*"){
+					ans = parseInt(newval)*parseInt(oldval);
+				}
+				else if(oldop=="/"){
+					ans = parseInt(oldval)/parseInt(newval);
+				}
+				else if(oldop=="%"){
+					ans = parseInt(oldval)%parseInt(newval);
+				}
+				io.value = ans;
+			}
+
+			function clearAll(){
+				io = document.getElementById("inout");
+				io.value = "";
+				oldval = "";
+				oldop ="";
+			}
+
+			function sin(){
+				io.value=Math.sin(io.value);
+
+			}
+			function cos(){
+				io.value=Math.cos(io.value);
+
+			}
+			function tan(){
+				io.value=Math.tan(io.value);
+
+			}
+			function power(){
+				io.value=Math.pow(io.value,2);
+
+			}
+			function fact(){
+				var n1,i,fact;
+				fact=1;
+				n1=io.value;
+		for(i=2;i<=n1;i++)
+		{
+			fact=fact*i;
+		}
+		i=i-1;
+		io.value=fact
+		
+		}
+		function sqrt() {
+			io.value=Math.sqrt(io.value,2);
+		}
+
+		function e(){
+			io.value=2.7182818284590;
+		}
+		function pie() {
+			io.value=3.1415926535897;
+		}
+		function log() {
+			io.value=Math.log(io.value);
+		}
+
+		</script>
+</body>
+</html>

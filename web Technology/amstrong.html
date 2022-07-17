@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		n1=prompt("enter number");
+		len=n1.length;
+		n=parseInt(n1);
+		sum=0
+		temp=n;
+		while(n>0){
+			remainder=n%10;
+			sum += Math.pow(remainder,len);
+			n=parseInt(n/10);
+			
+		}
+		if(sum==temp){
+			document.write("number is armstrong")
+		}
+		else{
+			document.write("number is not armstrong")
+		}
+	</script>
+
+</body>
+</html
+

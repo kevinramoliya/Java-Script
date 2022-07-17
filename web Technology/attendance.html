@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        #maindiv{
+            margin: 100px 100px;
+            position: fixed;
+            width: 50%;
+            height: 40%;
+            color: brown;
+            font-weight: 100;
+            background-color: palevioletred;
+        }
+        
+    </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="Cheakall()">Cheakall</button>
+        <button onclick="UnCheakall()">Uncheckall</button>
+        <br>
+
+        <div id="maindiv">Absent_rollno.</div>
+        <script>
+        for(var i=201;i<285;i++){
+            document.write("<input type='checkbox' onclick='abc()' value="+i+">"+i+"</br>");
+        }
+        var allstu=document.getElementsByTagName("input");
+
+        function abc(){
+        var allstu=document.getElementsByTagName("input");
+        var temp = document.getElementById("maindiv");
+        temp.innerHTML=" ";
+            for(var i=0;i<allstu.length;i++){
+                if(!allstu[i].checked){
+                    temp.innerHTML+=allstu[i].value + ", ";
+                }
+            }                       
+        }
+        function Cheakall(){
+            for(var i=0;i<allstu.length;i++){
+                allstu[i].checked=true;
+            }
+            temp = document.getElementById("maindiv");
+            temp.innerHTML = " ";
+        }
+        function UnCheakall(){
+            for(var i=0;i<allstu.length;i++){
+                allstu[i].checked=false
+            }
+            abc();    
+        }
+
+
+    </script>
+    </body>
+</html>
